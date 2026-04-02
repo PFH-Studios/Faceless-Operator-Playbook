@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet" />
+  <link rel="stylesheet" href="shared/nav.css" />
   <style>
     *,
     *::before,
@@ -160,70 +161,7 @@
       }
     }
 
-    /* ─── NAV ─── */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 200;
-      padding: 18px 48px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(11, 11, 11, 0.7);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-logo {
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .nav-logo span {
-      color: var(--accent);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-    }
-
-    .nav-link {
-      font-size: 13px;
-      color: var(--muted);
-      text-decoration: none;
-      letter-spacing: 0.04em;
-      transition: color 0.2s;
-    }
-
-    .nav-link:hover {
-      color: var(--text);
-    }
-
-    .nav-cta {
-      background: var(--accent);
-      color: #000;
-      font-size: 13px;
-      font-weight: 800;
-      padding: 10px 24px;
-      border-radius: 6px;
-      text-decoration: none;
-      letter-spacing: 0.04em;
-      transition: var(--transition);
-      box-shadow: 0 0 0 0 var(--accent-glow);
-    }
-
-    .nav-cta:hover {
-      box-shadow: 0 4px 28px var(--accent-glow);
-      transform: translateY(-1px);
-    }
+    /* ─── NAV handled by shared/nav.css ─── */
 
     /* ─── HERO ─── */
     .hero {
@@ -1196,7 +1134,7 @@
     }
 
     /* ─── FOOTER ─── */
-    footer {
+    .site-footer {
       border-top: 1px solid var(--border);
       padding: 40px 48px;
       display: flex;
@@ -1214,24 +1152,30 @@
       color: var(--muted);
     }
 
-    .footer-brand span {
-      color: var(--accent);
+    .footer-brand span { color: var(--accent); }
+
+    .footer-nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
-    .footer-copy {
+    .footer-nav a {
       font-size: 12px;
       color: var(--subtle);
-    }
-
-    .footer-email {
-      font-size: 12px;
-      color: var(--muted);
       text-decoration: none;
       transition: color 0.2s;
     }
 
-    .footer-email:hover {
-      color: var(--accent);
+    .footer-nav a:hover { color: var(--accent); }
+
+    .footer-copy {
+      font-size: 12px;
+      color: var(--subtle);
+      width: 100%;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      line-height: 1.7;
     }
 
     /* ─── REVEAL ─── */
@@ -1260,14 +1204,6 @@
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
-      nav {
-        padding: 16px 24px;
-      }
-
-      .nav-links .nav-link {
-        display: none;
-      }
-
       .trust-strip {
         grid-template-columns: 1fr 1fr;
       }
@@ -1422,16 +1358,22 @@
 <body>
 
   <!-- NAV -->
-  <nav>
-    <div class="nav-logo">PFH <span>Studios</span></div>
+  <nav id="site-nav">
+    <a href="/" class="nav-logo">PFH STUDIOS</a>
     <div class="nav-links">
-      <a href="#system" class="nav-link">The System</a>
-      <a href="#inside" class="nav-link">What's Inside</a>
-      <a href="#pricing" class="nav-link">Pricing</a>
+      <a href="free.html" class="nav-link" id="nav-free">Basic Access</a>
+      <a href="index.html" class="nav-link active" id="nav-playbook">Playbook</a>
+      <a href="courses.html" class="nav-link" id="nav-course">Course</a>
     </div>
-    <a href="https://whop.com/checkout/plan_X18enAPMGRj5F" class="nav-cta" target="_blank" rel="noopener">Get the
-      Playbook - €27</a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+  <div class="nav-drawer" id="nav-drawer">
+    <a href="free.html" class="nav-link">Basic Access</a>
+    <a href="index.html" class="nav-link active">Playbook</a>
+    <a href="courses.html" class="nav-link">Course</a>
+  </div>
 
   <!-- HERO -->
   <section class="hero">
@@ -1707,7 +1649,7 @@
               </svg>
             </div>
             <div>
-              <div class="bonus-item-name">30 Reel Hook Templates</div>
+              <div class="bonus-item-name">50 Viral Hook Templates</div>
               <div class="bonus-item-type">Google Doc / Notion</div>
             </div>
           </div>
@@ -1900,7 +1842,7 @@
                 stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
-              30 Reel Hook Templates
+              50 Viral Hook Templates
             </li>
             <li>
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -1968,10 +1910,17 @@
   </div>
 
   <!-- FOOTER -->
-  <footer>
+  <footer class="site-footer">
     <div class="footer-brand">PFH <span>Studios</span></div>
-    <p class="footer-copy">© 2026 PFH Studios. All rights reserved.</p>
-    <a href="mailto:contact@pfh-games.de" class="footer-email">contact@pfh-games.de</a>
+    <nav class="footer-nav">
+      <a href="free.html">Basic Access</a>
+      <a href="index.html">Playbook</a>
+      <a href="courses.html">Course</a>
+      <a href="mailto:contact@pfh-games.de">contact@pfh-games.de</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </nav>
+    <p class="footer-copy">© 2026 PFH Studios. All rights reserved. &nbsp;·&nbsp; Alle genannten Zahlen sind Rechenbeispiele. Individuelle Ergebnisse variieren.</p>
   </footer>
 
   <script>
@@ -2023,16 +1972,8 @@
       countObserver.observe(el);
     });
 
-    // ── NAV SHRINK ON SCROLL ──
-    const nav = document.querySelector('nav');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 60) {
-        nav.style.padding = '12px 48px';
-      } else {
-        nav.style.padding = '18px 48px';
-      }
-    }, { passive: true });
   </script>
+  <script src="shared/nav.js"></script>
 </body>
 
 </html>
