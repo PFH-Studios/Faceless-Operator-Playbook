@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Content Operator Course — €20 | PFH Studios</title>
+  <meta name="description" content="47 lessons. 10 modules. Every AI tool mapped to every job in the content production pipeline. One-time €20." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared/nav.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0B0B0B;
+      --card: #111111;
+      --border: #1F1F1F;
+      --border-hover: rgba(255, 122, 0, 0.35);
+      --accent: #FF7A00;
+      --accent-hover: #E06900;
+      --accent-dim: rgba(255, 122, 0, 0.10);
+      --accent-glow: rgba(255, 122, 0, 0.30);
+      --accent-glow-strong: rgba(255, 122, 0, 0.50);
+      --accent-light: #FFCF99;
+      --text: #FFFFFF;
+      --muted: #888888;
+      --subtle: #555555;
+      --transition: all 0.3s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.025;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    @keyframes fade-in-up {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fade-in-down {
+      from { opacity: 0; transform: translateY(-14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes nebula-breathe {
+      0%, 100% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.12); opacity: 1; }
+    }
+    @keyframes pulse-dot {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255, 122, 0, 0.5); }
+      50% { box-shadow: 0 0 0 6px rgba(255, 122, 0, 0); }
+    }
+    @keyframes border-glow {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+    @keyframes scroll-bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 140px 24px 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-nebula {
+      position: absolute;
+      width: 700px;
+      height: 500px;
+      left: 50%;
+      top: 52%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(ellipse at 50% 40%, rgba(255, 122, 0, 0.38) 0%, rgba(255, 100, 0, 0.18) 28%, rgba(180, 60, 0, 0.05) 60%, transparent 75%);
+      filter: blur(72px);
+      animation: nebula-breathe 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; z-index: 2; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 8px 20px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 36px;
+      animation: fade-in-down 0.8s ease both;
+    }
+
+    .badge-dot {
+      width: 7px; height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse-dot 2s infinite;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 80px);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      max-width: 820px;
+      margin-bottom: 24px;
+      animation: fade-in-up 0.9s ease 0.1s both;
+    }
+
+    .hero-sub {
+      font-size: clamp(16px, 2.2vw, 19px);
+      color: var(--muted);
+      max-width: 500px;
+      line-height: 1.7;
+      margin: 0 auto 48px;
+      animation: fade-in-up 0.9s ease 0.25s both;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      animation: fade-in-up 0.9s ease 0.4s both;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent);
+      color: #000;
+      font-size: 16px;
+      font-weight: 800;
+      padding: 18px 44px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+    }
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(255, 122, 0, 0.4);
+    }
+
+    .hero-note {
+      font-size: 12px;
+      color: var(--subtle);
+      letter-spacing: 0.04em;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0.35;
+      animation: scroll-bounce 2s ease-in-out infinite;
+      z-index: 2;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 100px 24px; }
+
+    .container { max-width: 1060px; margin: 0 auto; }
+
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-eyebrow::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    h2 {
+      font-size: clamp(30px, 5vw, 52px);
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      line-height: 1.08;
+      margin-bottom: 20px;
+    }
+
+    .section-sub {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+
+    /* ── FOR OPERATORS ── */
+    .for-section { background: linear-gradient(180deg, var(--bg) 0%, rgba(22,22,22,0.4) 50%, var(--bg) 100%); }
+
+    .for-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-top: 48px;
+    }
+
+    .for-item {
+      background: var(--card);
+      padding: 28px 36px;
+      font-size: clamp(18px, 2.5vw, 24px);
+      font-weight: 700;
+      color: var(--text);
+      border-left: 3px solid var(--border);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .for-item:first-child { border-radius: 12px 12px 0 0; }
+    .for-item:last-child { border-radius: 0 0 12px 12px; }
+    .for-item:hover { border-left-color: var(--accent); background: #181818; }
+
+    .for-dash { color: var(--accent); margin-right: 12px; }
+
+    /* ── TOOLS ── */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 2px;
+      margin-top: 48px;
+    }
+
+    .tool-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      transition: border-color 0.2s;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .tool-card:hover { border-color: var(--border-hover); }
+
+    .tool-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    .tool-name {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .tool-role {
+      font-size: 12px;
+      color: var(--subtle);
+      line-height: 1.4;
+    }
+
+    /* ── CURRICULUM ── */
+    .curriculum { background: linear-gradient(180deg, var(--bg) 0%, rgba(22,22,22,0.4) 50%, var(--bg) 100%); }
+
+    .accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-top: 48px;
+    }
+
+    .accordion-item {
+      background: var(--card);
+      border-left: 3px solid var(--border);
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .accordion-item:first-child { border-radius: 12px 12px 0 0; }
+    .accordion-item:last-child { border-radius: 0 0 12px 12px; }
+    .accordion-item.open { border-left-color: var(--accent); }
+
+    .accordion-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 28px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .accordion-header:hover { background: #181818; }
+
+    .accordion-title { font-size: 15px; font-weight: 700; }
+
+    .accordion-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .accordion-count {
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .accordion-arrow {
+      width: 18px;
+      height: 18px;
+      color: var(--muted);
+      transition: transform 0.25s ease;
+      flex-shrink: 0;
+    }
+    .accordion-item.open .accordion-arrow { transform: rotate(180deg); color: var(--accent); }
+
+    .accordion-body {
+      display: none;
+      padding: 0 28px 20px;
+    }
+    .accordion-item.open .accordion-body { display: block; }
+
+    .lesson-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .lesson-list li {
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.5;
+    }
+    .lesson-list li::before {
+      content: '–';
+      color: var(--subtle);
+      flex-shrink: 0;
+    }
+
+    /* ── WHY DIFFERENT ── */
+    .diff-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 48px;
+    }
+
+    .diff-card {
+      background: var(--card);
+      padding: 36px 32px;
+      transition: background 0.2s;
+    }
+    .diff-card:first-child { border-radius: 12px 0 0 12px; }
+    .diff-card:last-child { border-radius: 0 12px 12px 0; }
+    .diff-card:hover { background: #181818; }
+
+    .diff-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .diff-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 12px; }
+    .diff-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+    /* ── WORKFLOWS ── */
+    .workflow-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-top: 48px;
+    }
+
+    .workflow-card {
+      background: var(--card);
+      padding: 32px;
+      border-left: 3px solid var(--border);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .workflow-card:nth-child(1) { border-radius: 12px 0 0 0; }
+    .workflow-card:nth-child(2) { border-radius: 0 12px 0 0; }
+    .workflow-card:nth-child(3) { border-radius: 0 0 0 12px; }
+    .workflow-card:nth-child(4) { border-radius: 0 0 12px 0; }
+    .workflow-card:hover { border-left-color: var(--accent); background: #181818; }
+
+    .workflow-num {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .workflow-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+    .workflow-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* ── NOTE BLOCK ── */
+    .note-block {
+      margin-top: 48px;
+      background: var(--card);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 12px 12px 0;
+      padding: 28px 32px;
+    }
+    .note-block p { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 14px; }
+    .note-link {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--subtle);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .note-link:hover { color: var(--accent); }
+
+    /* ── PRICING ── */
+    .pricing-outer {
+      display: flex;
+      justify-content: center;
+      margin-top: 64px;
+    }
+
+    .pricing-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 60px 68px;
+      text-align: center;
+      max-width: 480px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 65%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent-glow-strong), transparent);
+      animation: border-glow 3s ease-in-out infinite;
+    }
+
+    .pricing-card-glow {
+      position: absolute;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 300px;
+      background: radial-gradient(ellipse, rgba(255, 122, 0, 0.18) 0%, transparent 70%);
+      filter: blur(60px);
+      pointer-events: none;
+    }
+
+    .pricing-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-dim);
+      border: 1px solid rgba(255, 122, 0, 0.3);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 7px 18px;
+      border-radius: 100px;
+      margin-bottom: 32px;
+    }
+
+    .price-block { margin-bottom: 8px; }
+    .price-currency { font-size: 28px; font-weight: 800; vertical-align: super; line-height: 1; }
+    .price-amount { font-size: 76px; font-weight: 900; letter-spacing: -0.05em; line-height: 1; }
+    .price-note { font-size: 13px; color: var(--muted); margin-bottom: 40px; }
+
+    .pricing-features {
+      list-style: none;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    .pricing-features li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+    .pricing-features li svg { color: var(--accent); flex-shrink: 0; }
+
+    .pricing-divider { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
+
+    .pricing-foot {
+      font-size: 12px;
+      color: var(--subtle);
+      line-height: 1.7;
+    }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      text-align: center;
+      padding: 60px 24px 120px;
+    }
+    .final-cta-inner { max-width: 680px; margin: 0 auto; }
+
+    .final-cta h2 {
+      font-size: clamp(32px, 5vw, 58px);
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #fff 30%, var(--accent-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .final-cta p {
+      font-size: 17px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 500px;
+      margin: 0 auto 44px;
+    }
+
+    .final-links {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .final-link {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--subtle);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .final-link:hover { color: var(--accent); }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 48px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .footer-brand {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .footer-brand span { color: var(--accent); }
+    .footer-nav { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-nav a {
+      font-size: 12px;
+      color: var(--subtle);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-nav a:hover { color: var(--accent); }
+    .footer-copy {
+      font-size: 12px;
+      color: var(--subtle);
+      width: 100%;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 900px) {
+      .diff-grid { grid-template-columns: 1fr; }
+      .diff-card:first-child { border-radius: 12px 12px 0 0; }
+      .diff-card:last-child { border-radius: 0 0 12px 12px; }
+      .workflow-grid { grid-template-columns: 1fr; }
+      .workflow-card:nth-child(1) { border-radius: 12px 12px 0 0; }
+      .workflow-card:nth-child(2), .workflow-card:nth-child(3) { border-radius: 0; }
+      .workflow-card:nth-child(4) { border-radius: 0 0 12px 12px; }
+      .tools-grid { grid-template-columns: 1fr 1fr; }
+      .pricing-card { padding: 44px 28px; }
+    }
+
+    @media (max-width: 600px) {
+      .tools-grid { grid-template-columns: 1fr; }
+      .site-footer { flex-direction: column; text-align: center; padding: 32px 24px; }
+      .footer-nav { justify-content: center; }
+      .final-links { flex-direction: column; align-items: center; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="site-nav">
+    <a href="index.html" class="nav-logo">PFH STUDIOS</a>
+    <div class="nav-links">
+      <a href="free.html" class="nav-link" id="nav-free">Basic Access</a>
+      <a href="index.html" class="nav-link" id="nav-playbook">Playbook</a>
+      <a href="courses.html" class="nav-link active" id="nav-course">Course</a>
+    </div>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-drawer" id="nav-drawer">
+    <a href="free.html" class="nav-link">Basic Access</a>
+    <a href="index.html" class="nav-link">Playbook</a>
+    <a href="courses.html" class="nav-link active">Course</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-nebula"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <div class="badge-dot"></div>
+        The AI Content Operator Course
+      </div>
+
+      <h1>Replace manual content work<br />with AI systems.</h1>
+
+      <p class="hero-sub">47 lessons. 10 modules. Every tool mapped to every job in the production pipeline.</p>
+
+      <div class="hero-actions">
+        <a href="[WHOP_COURSE_URL]" class="btn-primary" target="_blank" rel="noopener">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Get the Course — €20
+        </a>
+        <p class="hero-note">One-time payment &nbsp;·&nbsp; Instant access &nbsp;·&nbsp; Lifetime updates</p>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+  </section>
+
+  <!-- FOR OPERATORS -->
+  <section class="for-section">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-eyebrow">For Operators Who</div>
+        <h2>Built for people<br />already in motion.</h2>
+      </div>
+
+      <div class="for-list reveal reveal-delay-1">
+        <div class="for-item"><span class="for-dash">—</span>Are already making content but doing it manually</div>
+        <div class="for-item"><span class="for-dash">—</span>Want to produce more with less time</div>
+        <div class="for-item"><span class="for-dash">—</span>Need to know which AI does which job — and in what order</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <section>
+    <div class="container">
+      <div class="reveal">
+        <div class="section-eyebrow">What You'll Use</div>
+        <h2>Industry-standard tools.<br />Operator-level execution.</h2>
+        <p class="section-sub">The course is built around tools operators actually use to produce content at scale. You already know some of them.</p>
+      </div>
+
+      <div class="tools-grid reveal reveal-delay-1" style="grid-template-columns: repeat(4, 1fr);">
+        <div class="tool-card"><div class="tool-dot"></div><div><div class="tool-name">Claude</div><div class="tool-role">Writing & scripting</div></div></div>
+        <div class="tool-card"><div class="tool-dot"></div><div><div class="tool-name">CapCut</div><div class="tool-role">Video editing</div></div></div>
+        <div class="tool-card"><div class="tool-dot"></div><div><div class="tool-name">Canva</div><div class="tool-role">Design & graphics</div></div></div>
+        <div class="tool-card"><div class="tool-dot"></div><div><div class="tool-name">Notion</div><div class="tool-role">Planning & SOPs</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURRICULUM -->
+  <section class="curriculum">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-eyebrow">Curriculum</div>
+        <h2>10 modules. 47 lessons.</h2>
+        <p class="section-sub">Every lesson is use-case first. You learn a tool because it solves a specific production problem — not because it exists.</p>
+      </div>
+
+      <div class="accordion reveal reveal-delay-1">
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span class="accordion-title">Module 1 — The Operator Mindset</span>
+            <div class="accordion-meta">
+              <span class="accordion-count">5 lessons</span>
+              <svg class="accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="accordion-body"><p style="font-size:13px;color:var(--muted);line-height:1.6;">5 lessons. Covered inside the course.</p></div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span class="accordion-title">Module 2 — Research & Ideation</span>
+            <div class="accordion-meta">
+              <span class="accordion-count">5 lessons</span>
+              <svg class="accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="accordion-body"><p style="font-size:13px;color:var(--muted);line-height:1.6;">5 lessons. Covered inside the course.</p></div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span class="accordion-title">Module 3 — Script Writing with AI</span>
+            <div class="accordion-meta">
+              <span class="accordion-count">7 lessons</span>
+              <svg class="accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="accordion-body"><p style="font-size:13px;color:var(--muted);line-height:1.6;">7 lessons. Covered inside the course.</p></div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span class="accordion-title">Module 4 — Voice & Audio Production</span>
+            <div class="accordion-meta">
+              <span class="accordion-count">4 lessons</span>
+              <svg class="accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="accordion-body"><p style="font-size:13px;color:var(--muted);line-height:1.6;">4 lessons. Covered inside the course.</p></div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span class="accordion-title">Module 5 — Visual Production with AI</span>
+            <div class="accordion-meta">
+              <span class="accordion-count">5 lessons</span>
+              <svg class="accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="accordion-body"><p style="font-size:13px;color:var(--muted);line-height:1.6;">5 lessons. Covered inside the course.</p></div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span class="accordion-title">Module 6 — Automated Video Editing</span>
+            <div class="accordion-meta">
+              <span class="accordion-count">7 lessons</span>
+              <svg class="accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="accordion-body"><p style="font-size:13px;color:var(--muted);line-height:1.6;">7 lessons. Covered inside the course.</p></div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span class="accordion-title">Module 7 — Distribution & Platform Optimisation</span>
+            <div class="accordion-meta">
+              <span class="accordion-count">4 lessons</span>
+              <svg class="accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="accordion-body"><p style="font-size:13px;color:var(--muted);line-height:1.6;">4 lessons. Covered inside the course.</p></div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span class="accordion-title">Module 8 — Performance Analysis and Iteration</span>
+            <div class="accordion-meta">
+              <span class="accordion-count">4 lessons</span>
+              <svg class="accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="accordion-body"><p style="font-size:13px;color:var(--muted);line-height:1.6;">4 lessons. Covered inside the course.</p></div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span class="accordion-title">Module 9 — Full Production Workflows</span>
+            <div class="accordion-meta">
+              <span class="accordion-count">5 lessons</span>
+              <svg class="accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="accordion-body"><p style="font-size:13px;color:var(--muted);line-height:1.6;">5 lessons. Covered inside the course.</p></div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span class="accordion-title">Module 10 — Advanced AI Operator Techniques</span>
+            <div class="accordion-meta">
+              <span class="accordion-count">5 lessons</span>
+              <svg class="accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="accordion-body"><p style="font-size:13px;color:var(--muted);line-height:1.6;">5 lessons. Covered inside the course.</p></div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span class="accordion-title">Bonus — Tool Reference Sheet</span>
+            <div class="accordion-meta">
+              <span class="accordion-count">Reference</span>
+              <svg class="accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="accordion-body"><p style="font-size:13px;color:var(--muted);line-height:1.6;">Included with the course.</p></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY DIFFERENT -->
+  <section>
+    <div class="container">
+      <div class="reveal">
+        <div class="section-eyebrow">Why This Course</div>
+        <h2>Not another basics course.</h2>
+      </div>
+
+      <div class="diff-grid reveal reveal-delay-1">
+        <div class="diff-card">
+          <div class="diff-label">01</div>
+          <h3>Not a basics course</h3>
+          <p>Every lesson is use-case first. You learn a tool because it solves a specific production problem — not because it exists.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-label">02</div>
+          <h3>The Remotion Skill module</h3>
+          <p>No other course at this price covers Claude Code + Remotion Skill for automated video rendering. Script in, MP4 out.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-label">03</div>
+          <h3>YouTube links included</h3>
+          <p>For deep dives on each tool, we link directly to the best existing YouTube tutorials. No padding. No repetition.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKFLOWS -->
+  <section style="background: linear-gradient(180deg, var(--bg) 0%, rgba(22,22,22,0.4) 50%, var(--bg) 100%);">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-eyebrow">What You Can Do After</div>
+        <h2>Four production<br />workflows, mastered.</h2>
+      </div>
+
+      <div class="workflow-grid reveal reveal-delay-1">
+        <div class="workflow-card">
+          <div class="workflow-num">Workflow 01</div>
+          <h3>The 30-Minute Reel</h3>
+          <p>Whisperflow → Claude → ElevenLabs → HeyGen → CapCut. A full reel from brief to export in under 30 minutes.</p>
+        </div>
+        <div class="workflow-card">
+          <div class="workflow-num">Workflow 02</div>
+          <h3>Research-to-Content Session</h3>
+          <p>90 minutes → 5 pieces of content. Research, briefs, scripts, assets — batched and ready to post.</p>
+        </div>
+        <div class="workflow-card">
+          <div class="workflow-num">Workflow 03</div>
+          <h3>The Automated Reel</h3>
+          <p>Script in → Remotion renders → Done. No manual editing. Fully code-driven video output via Claude Code.</p>
+        </div>
+        <div class="workflow-card">
+          <div class="workflow-num">Workflow 04</div>
+          <h3>The Launch Content Series</h3>
+          <p>7 scripts → batched → scheduled. A complete launch week of content produced and queued in one session.</p>
+        </div>
+      </div>
+
+      <div class="note-block reveal reveal-delay-2">
+        <p>This course is built on top of the Faceless Operator Playbook system. If you don't have the Playbook yet, you can get both. But if you already have it, the course is the next layer.</p>
+        <a href="index.html" class="note-link">→ See what's in the Playbook</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="container">
+      <div class="reveal" style="text-align: center;">
+        <div class="section-eyebrow" style="justify-content: center;">Pricing</div>
+        <h2>One price.<br />Everything included. Forever.</h2>
+        <p class="section-sub" style="margin: 0 auto 64px;">47 lessons, 10 modules, full tool reference, lifetime updates — delivered instantly.</p>
+      </div>
+
+      <div class="pricing-outer reveal reveal-delay-1">
+        <div class="pricing-card">
+          <div class="pricing-card-glow"></div>
+
+          <div class="pricing-badge">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="#FF7A00"><circle cx="12" cy="12" r="10"/></svg>
+            Instant Digital Access
+          </div>
+
+          <div class="price-block">
+            <span class="price-currency">€</span><span class="price-amount">20</span>
+          </div>
+          <p class="price-note">One-time payment — no recurring fees, ever.</p>
+
+          <ul class="pricing-features">
+            <li>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              AI Content Operator Course (47 lessons, 10 modules)
+            </li>
+            <li>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Full Tool Reference Sheet (14 tools)
+            </li>
+            <li>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              4 complete production workflow SOPs
+            </li>
+            <li>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Remotion Skill + Claude Code automation module
+            </li>
+            <li>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Lifetime updates
+            </li>
+          </ul>
+
+          <a href="[WHOP_COURSE_URL]" class="btn-primary"
+            style="width: 100%; justify-content: center; font-size: 17px; padding: 20px; border-radius: 8px; background: #FF7A00; color: #000; text-decoration: none; font-weight: 800; display: flex; align-items: center; gap: 10px; transition: background 150ms ease;"
+            target="_blank" rel="noopener"
+            onmouseover="this.style.background='#E06900'" onmouseout="this.style.background='#FF7A00'">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Get the Course — €20
+          </a>
+
+          <hr class="pricing-divider" />
+          <p class="pricing-foot">Delivered instantly via Whop.com &nbsp;·&nbsp; Questions? contact@pfh-games.de</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <div class="final-cta">
+    <div class="final-cta-inner reveal">
+      <h2>The tools exist.<br />Now use them in the right order.</h2>
+      <p>47 lessons. Every tool mapped. Every workflow documented. One-time €20.</p>
+      <a href="[WHOP_COURSE_URL]" class="btn-primary"
+        style="font-size: 17px; padding: 20px 52px; background: #FF7A00; color: #000; text-decoration: none; font-weight: 800; border-radius: 8px; display: inline-flex; align-items: center; gap: 10px;"
+        target="_blank" rel="noopener">
+        Get the Course — €20
+      </a>
+      <div class="final-links">
+        <a href="free.html" class="final-link">→ Start free</a>
+        <a href="index.html" class="final-link">→ Get the Playbook</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-brand">PFH <span>Studios</span></div>
+    <nav class="footer-nav">
+      <a href="free.html">Basic Access</a>
+      <a href="index.html">Playbook</a>
+      <a href="courses.html">Course</a>
+      <a href="mailto:contact@pfh-games.de">contact@pfh-games.de</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </nav>
+    <p class="footer-copy">© 2026 PFH Studios. All rights reserved. &nbsp;·&nbsp; Alle genannten Zahlen sind Rechenbeispiele. Individuelle Ergebnisse variieren.</p>
+  </footer>
+
+  <script>
+    // ── SCROLL REVEAL ──
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ── ACCORDION ──
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.closest('.accordion-item');
+        const isOpen = item.classList.contains('open');
+        // Close all
+        document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
+        // Toggle clicked
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
+  <script src="shared/nav.js"></script>
+</body>
+</html>
