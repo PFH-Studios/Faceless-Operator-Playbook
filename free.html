@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Basic Access — Free | PFH Studios</title>
-  <meta name="description" content="Get your first module, two AI lessons, and access to the operator community — free. No cost. No catch." />
+  <title>Basic Access - Free | PFH Studios</title>
+  <meta name="description" content="Get your first module, two AI lessons, and access to the operator community - free. No cost. No catch." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -215,6 +215,39 @@
       animation: scroll-bounce 2s ease-in-out infinite;
       z-index: 2;
     }
+
+    /* ── VIDEO ── */
+    .video-section {
+      padding: 72px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    .video-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .video-section h2 {
+      font-size: clamp(22px, 4vw, 36px);
+      font-weight: 800;
+      text-align: center;
+      color: #fff;
+      margin: 0;
+    }
+    .video-wrapper {
+      width: 100%;
+      max-width: 780px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 60px rgba(255, 122, 0, 0.12), 0 24px 64px rgba(0, 0, 0, 0.6);
+      margin-top: 8px;
+    }
+    .video-wrapper video { width: 100%; display: block; }
 
     /* ── TRUST STRIP ── */
     .trust-strip {
@@ -543,7 +576,7 @@
     <div class="hero-content">
       <div class="hero-badge">
         <div class="badge-dot"></div>
-        Free Access — No Card Required
+        Free Access - No Card Required
       </div>
 
       <h1>
@@ -552,7 +585,7 @@
       </h1>
 
       <p class="hero-sub">
-        Get your first module, two AI lessons, and access to the operator community — completely free.
+        Get your first module, two AI lessons, and access to the operator community - completely free.
       </p>
 
       <div class="hero-actions">
@@ -568,6 +601,17 @@
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
   </section>
+
+  <!-- VIDEO SECTION -->
+  <div class="video-section reveal">
+    <div class="video-eyebrow">See It In Action</div>
+    <h2>What You Get for Free</h2>
+    <div class="video-wrapper">
+      <video autoplay muted loop playsinline controls>
+        <source src="free-demo.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
 
   <!-- TRUST STRIP -->
   <div class="trust-strip">
@@ -610,7 +654,7 @@
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF7A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
           </div>
           <h3>Module 1 of the Playbook</h3>
-          <p>The full first chapter of the Faceless Operator Playbook — why faceless works in 2026 and the exact mindset behind the system.</p>
+          <p>The full first chapter of the Faceless Operator Playbook - why faceless works in 2026 and the exact mindset behind the system.</p>
         </div>
 
         <div class="card">
@@ -619,7 +663,7 @@
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF7A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
           </div>
           <h3>2 Lessons from the AI Course</h3>
-          <p>Two full lessons from the AI Content Operator course — pulled directly from the paid curriculum. No watered-down preview version.</p>
+          <p>Two full lessons from the AI Content Operator course - pulled directly from the paid curriculum. No watered-down preview version.</p>
         </div>
       </div>
     </div>
@@ -638,14 +682,14 @@
         <div class="why-item">
           <div class="why-text">
             <h4>Read the foundation first</h4>
-            <p>Module 1 gives you the operator mindset — the mental framework that separates people who build from people who watch. It's the only place to start.</p>
+            <p>Module 1 gives you the operator mindset - the mental framework that separates people who build from people who watch. It's the only place to start.</p>
           </div>
           <div class="why-tag">Module 1 included</div>
         </div>
         <div class="why-item">
           <div class="why-text">
             <h4>See the AI system in action</h4>
-            <p>Two real lessons from the AI Content Operator course. Not a trailer, not a teaser — actual curriculum content so you know exactly what you're considering.</p>
+            <p>Two real lessons from the AI Content Operator course. Not a trailer, not a teaser - actual curriculum content so you know exactly what you're considering.</p>
           </div>
           <div class="why-tag">2 AI lessons</div>
         </div>
@@ -679,7 +723,7 @@
         <a href="courses.html" class="upgrade-card">
           <div class="upgrade-card-price">€20</div>
           <h3>AI Content Operator Course</h3>
-          <p>47 lessons. 10 modules. Every AI tool mapped to every job in the production pipeline — so you build faster with less manual work.</p>
+          <p>47 lessons. 10 modules. Every AI tool mapped to every job in the production pipeline - so you build faster with less manual work.</p>
           <div class="upgrade-card-arrow">
             Get the Course
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -701,10 +745,10 @@
       <a href="index.html">Playbook</a>
       <a href="courses.html">Course</a>
       <a href="mailto:contact@pfh-games.de">contact@pfh-games.de</a>
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
+      <a href="impressum.html">Imprint</a>
+      <a href="datenschutz.html">Privacy Policy</a>
     </nav>
-    <p class="footer-copy">© 2026 PFH Studios. All rights reserved. &nbsp;·&nbsp; Alle genannten Zahlen sind Rechenbeispiele. Individuelle Ergebnisse variieren.</p>
+    <p class="footer-copy">© 2026 PFH Studios. All rights reserved. &nbsp;·&nbsp; All figures shown are examples only. Individual results may vary.</p>
   </footer>
 
   <script>
